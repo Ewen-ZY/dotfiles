@@ -1,0 +1,21 @@
+{
+  "settingsVersion": "1.64.5",
+  "exclusionRules": [],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "# Insert your preferred key mappings here.",
+  "linkHintCharacters": "sadfghwerqtzxcvbyuijklnm",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 200,
+  "smoothScroll": true,
+  "grabBackFocus": false,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\n\n# More examples.\n#\n# (Vimium supports search completion Wikipedia, as\n# above, and for these.)\n#\n#####################################\n### 工具搜索\nzh: https://www.zhihu.com/search?type=content&q=%s 知乎\ngh: https://github.com/search?q=%s Github\nghs: https://github.com/Ewen-ZY?direction=desc&sort=created&tab=stars&utf8=✓&q=%s Github Stars\nghre: https://github.com/Ewen-ZY?utf8=✓&tab=repositories&q=%s Github repositories\ncl: https://unbug.github.io/codelf/#%s CODELF\naur: https://aur.archlinux.org/packages/?O=0&K=%s AUR Package\nawk: https://wiki.archlinux.org/index.php/%s Archlinux Wiki\n\n### 音乐搜索\nwyy: https://music.163.com/#/search/m/?s=%s 网易云音乐\n\n### 视频搜索\nyt: https://www.youtube.com/results?search_query=%s Youtube\nyk: https://so.youku.com/search_video/q_%s 优酷\nbl: https://search.bilibili.com/all?keyword=%s 哔哩哔哩\ndbm: https://movie.douban.com/subject_search?search_text=%s 豆瓣电影\n\n### 搜索引擎\ngg: https://www.google.ie/search?q=%s Google\nbd: http://www.baidu.com/s?wd=%s 百度\n\n### Google翻译\ngtac: https://translate.google.com/#view=home&op=translate&sl=auto&tl=zh-CN&text=%s Google 译中\ngtec: https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=%s Google 英译中\ngtce: https://translate.google.com/#view=home&op=translate&sl=zh-CN&tl=en&text=%s Google 中译英",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n/* linkhint boxes */\nbackground: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF785),\n  color-stop(100%,#FFC542));\nborder: 1px solid #E3BE23;\n}\n\ndiv > .vimiumHintMarker span {\n/* linkhint text */\ncolor: black;\nfont-weight: bold;\nfont-size: 12px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n}"
+}

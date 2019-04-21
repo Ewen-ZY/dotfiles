@@ -1,0 +1,317 @@
+"----------------------------------------
+" Vundle
+"----------------------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
+
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Git Wrapper
+Plugin 'tpope/vim-fugitive'
+
+" Vim Markdown Plugins
+" Highlight
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+" MarkdownPreview
+Plugin 'iamcco/markdown-preview.vim'
+Plugin 'iamcco/mathjax-support-for-mkdp'
+" Table Mode
+Plugin 'dhruvasagar/vim-table-mode'
+
+" Vim background theme
+Plugin 'altercation/vim-colors-solarized'
+
+" Vim airline themes
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Code
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Syntastic'
+Plugin 'UltiSnips'
+Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'Yggdroot/indentLine'
+" Python
+Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'tell-k/vim-autopep8'
+
+" Fuzzy Finder
+Plugin 'Yggdroot/LeaderF'
+" NERDTree
+Plugin 'scrooloose/nerdtree'
+" NERDTree-git-plugin
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Translation
+Plugin 'iamcco/dict.vim'
+
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+call vundle#end()
+filetype plugin indent on
+
+"----------------------------------------
+" Vim basic config
+"----------------------------------------
+" Automatically check filetype
+filetype plugin indent on
+
+syntax enable
+" Set line number
+set number
+set autoindent
+" Set tab => 4spaces
+set ts=4
+set expandtab
+set shiftwidth=4
+" Set search options'
+set incsearch
+set hlsearch
+set ignorecase
+" Set completion operations in an enhanced mode
+set wildmenu
+" Set desert as colorscheme
+colorscheme desert_EwenLai
+
+" Folding
+set foldopen=all
+set foldclose=all
+
+" RelativeNumber
+set relativenumber
+
+" Use those charsets supporting various Chinese edcodings
+set fileencodings=utf-8,gbk,utf-16le,cp1252,iso-8859-15,ucs-bom
+set termencoding=utf-8
+set encoding=utf-8
+
+"----------------------------------------
+" My iabbrev
+"----------------------------------------
+inoreabbrev bj 计算机zy1502
+inoreabbrev xh 0121510870905
+inoreabbrev sfz 360734199611078232
+inoreabbrev yx@ lwwens@gmail.com
+inoreabbrev ccp Copyright  Ewen Lai, all rights reserved.
+inoreabbrev myweb https://gitee.com/lwwens/events
+inoreabbrev gitweb https://github.com/52101107
+inoreabbrev csdnweb https://blog.csdn.net/aq931752921
+cnoreabbrev vbh vertical botright help
+
+"----------------------------------------
+" Vim variables
+"----------------------------------------
+" Set MapLocalLeader
+let maplocalleader=','
+" let mapleader=','
+
+" Always display tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" NERDTree
+let g:NERDTreeWinSize = 20
+let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeAutoCenter = 1
+" Show hidden files
+let g:NERDTreeShowHidden = 1
+" Ignore hidden files such as .pyc,~$,.swp
+let g:NERDTreeIgnore = ['\.pyc','\~$','\.swp']
+let g:nerdtree_tabs_open_on_console_startup = 1
+" Show bookmarks
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeIndicatorMapCustom = {
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ 'Ignored'   : '☒',
+            \ "Unknown"   : "?"
+            \ }
+
+" Syntastic
+" Error symbol
+let g:syntastic_error_symbol = '✗'
+" Warning symbol
+let g:syntastic_warning_symbol ='⚠'
+" Automatically update the list of buttom
+let g:syntastic_always_populate_loc_list = 1
+" Auto open list
+let g:syntastic_auto_loc_list = 1
+" Check errors while opening file
+let g:syntastic_check_on_open = 1
+" Check errors while saving file
+let g:syntastic_check_on_wq = 1
+" Automatically jump to the first error or warning
+let g:syntastic_auto_jump = 1
+
+" YouCompleteMe
+set completeopt=menu,menuone
+let g:ycm_keep_logfiles = 1
+" let g:ycm_log_level = 'debug'
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_auto_trigger = 1
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '>*'
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:syntastic_ignore_files = [".*\.py$"]
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+let g:ycm_semantic_triggers =  {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
+let g:ycm_filetype_whitelist = { 
+            \ "c":1,
+            \ "cpp":1, 
+            \ "objc":1,
+            \ "sh":1,
+            \ "html":1,
+            \ "zsh":1,
+            \ "vim":1,
+            \ "python":1,
+            \ "make":1,
+            \ "sudoers":1,
+            \ "conf":1,
+            \ "xdefaults":1,
+            \ "systemd":1,
+            \ }
+
+" Markdown
+" Preview setting, https://github.com/iamcco/markdown-preview.vim
+" the file path to browser
+let g:mkdp_path_to_chrome = '/opt/google/chrome/google-chrome'
+let g:mkdp_auto_start = 0
+" open it while editing md file if not open preview page
+let g:mkdp_auto_open = 0
+let g:mkdp_auto_close = 1
+" auto refresh markdown as you edit or move the cursor
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+
+" TableMode
+let g:table_mode_corner = '|'
+let g:table_mode_tableize_map = '<localleader>tt'
+let g:table_mode_delete_column_map = '<localleader>tc'
+let g:table_mode_delimiter = ','
+
+" Translation dict
+let g:api_key = "1932136763"
+let g:keyfrom = "aioiyuuko"
+
+" Python
+let g:jedi#force_py_version=3
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
+
+"----------------------------------------
+" Vim keymap
+"----------------------------------------
+" Replace <ESC> with jk
+inoremap jk <ESC>
+inoremap <localleader>w <ESC>:w<CR>
+nnoremap <localleader>w <ESC>:w<CR>
+" Convert the current word to uppercase while inserting
+inoremap <C-U> <ESC>bviwU
+" edit ~/.vim/vimrc
+nnoremap <localleader>ev :vsplit $MYVIMRC<CR>
+nnoremap <localleader>eV :split $MYVIMRC<CR>
+nnoremap <localleader>rv :source $MYVIMRC<CR>
+" Open/Close NERDTree
+nnoremap <localleader>m :NERDTreeToggle<CR>
+" Switch buffer
+nnoremap <F4> :bprevious<CR>
+nnoremap <F5> :bnext<CR>
+" Goto the end line of file
+nnoremap G Gzz
+" Get local time
+nnoremap <F2> a<C-R>=strftime("%Y-%m-%d week%u %H:%M:%S")<CR>
+inoremap <localleader><localleader> <localleader>
+
+" Preview
+nnoremap <localleader>mp :MarkdownPreview<cr>
+nnoremap <localleader>ms :MarkdownPreviewStop<cr>
+
+" Markdown
+" TableMode
+nnoremap <localleader>tm :TableModeToggle<cr>
+nnoremap <localleader>tf :TableFormat<cr>
+" Leaderf
+nnoremap <localleader>f :LeaderfSelf<cr>
+
+" YouCompleteMe
+nnoremap <localleader>z :YcmCompleter GoToDeclaration<cr>
+nnoremap <localleader>c :YcmCompleter GoToDefinition<cr>
+
+"----------------------------------------
+" Vim customized command
+"----------------------------------------
+" Json text Format
+command! JsonFormat :execute '%!python -m json.tool'
+            \ | :execute '%!python -c "import re,sys;chr=__builtins__.__dict__.get(\"unichr\", chr);sys.stdout.write(re.sub(r\"\\u[0-9a-f]{4}\", lambda x: chr(int(\"0x\" + x.group(0)[2:], 16)).encode(\"utf-8\"), sys.stdin.read()))"'
+            \ | :set ft=javascript
+            \ | :1
+
+"----------------------------------------
+" Automatically check the type of file
+"----------------------------------------
+" Template file
+augroup Template_file
+    au!
+    au BufNewFile *.c 0r $HOME/.vim/template/c.template
+    au BufNewFile *.cpp 0r $HOME/.vim/template/cpp.template
+    au BufNewFile *.h 0r $HOME/.vim/template/h.template
+    au BufNewFile *.sh 0r $HOME/.vim/template/sh.template
+    au BufNewFile *.py 0r $HOME/.vim/template/py.template
+augroup END
+
+" Markdown file
+augroup Markdown_file
+    au!
+    au BufNewFile,BufReadPost *.md set filetype=markdown
+    au BufNewFile,BufReadPost *.md setlocal foldcolumn=4
+augroup END
+
+" HTML file
+augroup HTML_file
+    au!
+    au BufNewFile,BufReadPost *.html set filetype=html
+    au FileType html nnoremap <buffer> <localleader>c I<!-- <ESC>A --><ESC>
+    au BufNewFile,BufRead *.html setlocal nowrap
+augroup END
+
+" C file
+augroup C_file
+    au!
+    au BufNewFile,BufReadPost *.c set filetype=c
+augroup END
+
+" Python
+augroup Py_file
+    au!
+    au VimEnter *.py python3 sys.path.append('.')
+    au BufWritePost *.py call Flake8()
+augroup END

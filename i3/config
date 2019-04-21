@@ -1,0 +1,285 @@
+
+# ----------------------------------------------------------------------
+# basic
+# ----------------------------------------------------------------------
+
+set $mod Mod1
+set $alt Mod1
+set $win Mod4
+
+# Font for window titles. Will also be used by the bar unless a different
+# font is used in the bar {} block below.
+font pango:monospace 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Right move container to workspace next; workspace next
+bindsym $mod+Left  move container to workspace prev; workspace prev
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal orientation
+bindsym $mod+semicolon  split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# Adjust windows border
+new_window none
+new_float none
+hide_edge_borders none
+bindsym $mod+n border none
+bindsym $mod+m border normal
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $WS1 "1:Brower"
+set $WS2 "2:Console"
+set $WS3 "3:Music"
+set $WS4 "4:Clion"
+set $WS5 "5:PyCharm"
+set $WS6 "6:Idea"
+set $WS7 "7:Read"
+set $WS8 "8:Doc"
+set $WS9 "9:Videos"
+set $WS10 "10:Tool"
+
+# switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym rmod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10
+
+# i3 gap and border starts
+gaps inner 6
+gaps outer 6
+set $default_gaps_inner 6
+set $default_gaps_outer -6
+smart_borders on
+
+# kill focused window
+bindsym $mod+q kill
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# /* basic auto launch */
+
+# Auto sleep
+exec --no-startup-id xset dpms 1200
+
+# Set primary 
+exec --no-startup-id xrandr --output HDMI1 --rotate normal --left-of eDP1 --primary
+
+# Set background image
+set $i3BGIMAGE "/home/ewen/Pictures/wallpaper/i3BGImage"
+exec --no-startup-id feh --bg-fill $i3BGIMAGE
+
+# Transparent all windows
+exec --no-startup-id compton -b
+
+# Volume cortrol plugins
+exec --no-startup-id volumeicon
+
+# Launch Sogou Input
+exec --no-startup-id fcitx 
+
+# /* basic apps */
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id konsole
+
+# launch krunner
+bindsym $mod+d exec --no-startup-id krunner
+
+# launch yakuake
+bindsym $win+z exec --no-startup-id yakuake
+
+# launch dolphin
+bindsym $mod+f exec --no-startup-id dolphin
+
+# Screenshot
+bindsym Print exec --no-startup-id dpScreenshot
+
+# i3lock
+# Set i3lock background image
+set $i3LOCKIMAGE "/home/ewen/Pictures/wallpaper/i3lockImage"
+mode "i3lock: Return to lock/Escape to Cancel" {
+        bindsym Return mode "default" exec --no-startup-id i3lock -i $i3LOCKIMAGE
+        bindsym Escape mode "default" 
+}
+bindsym $mod+x mode "i3lock: Return to lock/Escape to Cancel"
+
+# Bightness Manage
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 3
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 3
+
+# Volume Manage
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 0 -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 0 -q set Master 2dB- unmute
+bindsym XF86AudioMute exec --no-startup-id amixer -c 0 -q set Master 100dB- unmute
+
+# ----------------------------------------------------------------------
+# bar
+# ----------------------------------------------------------------------
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3status
+    tray_output primary
+
+    colors {
+        separator  #8C00FF
+        background #142348
+        statusline #aea79f
+        focused_workspace  #8C00FF #3A5BFF #ffffff
+
+        # unfocused border, background, font
+        active_workspace   #073642 #2040AA #cccccc
+        inactive_workspace #002b36 #142348 #aaaaaa
+        urgent_workspace   #77216f #77216f #ffffff
+    }
+}
+
+# colors
+# class       border  backgr  text  indicator child_border 
+client.urgent #4a4b4c #4a4b4c #fdfdfd #fbfbfb #4a4c4b
+client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+client.background #111111
+client.focused #888888 #dddddd #222222 #2e9ef4
+client.focused_inactive #333333 #555555 #bbbbbb #484e50
+client.unfocused #333333 #333333 #888888 #292d2e
+
+# ----------------------------------------------------------------------
+# user apps
+# ----------------------------------------------------------------------
+
+# Google
+bindsym $mod+g exec --no-startup-id google-chrome-stable
+# Typora
+bindsym $mod+t exec --no-startup-id Typora
+# Clion
+bindsym $mod+c exec --no-startup-id clion
+# IDEA
+bindsym $mod+i exec --no-startup-id idea
+# PyCharm
+bindsym $mod+p exec --no-startup-id pycharm
+# VSCodium
+bindsym $Win+p exec --no-startup-id vscodium
+# FBReader
+bindsym $Win+b exec --no-startup-id FBReader
+# Bookworm
+bindsym $mod+b exec --no-startup-id com.github.babluboy.bookworm
+# calibre
+bindsym $win+c exec --no-startup-id calibre
+
+# apps specification
+for_window [class="yakuake"] floating enable; border none
+for_window [class="krunner"] floating enable;
+for_window [class="plasmashell"] floating enable;
+for_window [class="systemsettings"] floating enable;
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable;
+
+# Automatically putting clients
+assign [class="Google-chrome"] $WS1
+assign [class="Firefox"] $WS1
+assign [class="konsole"] $WS2
+assign [class="netease-cloud-music"] $WS3
+assign [class="jetbrains-clion"] $WS4
+assign [class="jetbrains-pycharm"] $WS5
+assign [class="VSCodium"] $WS6
+assign [class="jetbrains-idea"] $WS6
+assign [class="Wireshark"] $WS6
+assign [class="Postman"] $WS6
+assign [class="Com.github.babluboy.bookworm"] $WS7
+assign [class="FBReader"] $WS7
+assign [class="okular"] $WS7
+assign [class="calibre"] $WS7
+assign [class="Evince"] $WS7
+assign [class="Et"] $WS8
+assign [class="Wpp"] $WS8
+assign [class="Wps"] $WS8
+assign [class="Typora"] $WS8
+assign [class="XMind ZEN"] $WS8
+assign [class="XMind"] $WS8
+assign [class="vlc"] $WS9
+assign [class="Gimp"] $WS10
+assign [class="Easytag"] $WS10
+assign [class="dolphin"] $WS10
+assign [class="filelight"] $WS10
+
+# /* auto launch */
+
+# Auto launch chrome
+exec --no-startup-id google-chrome-stable
+exec --no-startup-id albert
+exec --no-startup-id konsole
+
+# end

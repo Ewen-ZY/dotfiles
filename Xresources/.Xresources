@@ -1,0 +1,2 @@
+!! include app config
+#include ".Xresources.d/rxvt-unicode"
