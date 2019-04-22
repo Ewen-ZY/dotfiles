@@ -1,0 +1,10 @@
+arch-wiki-man
+aria2c-daemon
+cheat-bash-git
+consolas-font
+dpkg
+fortune-mod-zh
+icdiff
+tmuxinator
+urxvt-resize-font-git
+xgetres
