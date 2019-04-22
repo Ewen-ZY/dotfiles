@@ -97,6 +97,7 @@ gaps outer 6
 set $default_gaps_inner 6
 set $default_gaps_outer -6
 smart_borders on
+smart_gaps on
 
 # kill focused window
 bindsym $mod+q kill
