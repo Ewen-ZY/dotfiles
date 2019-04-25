@@ -7,3 +7,4 @@
 - ploybar
 - tmux
 - Xresources
+

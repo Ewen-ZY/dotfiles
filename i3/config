@@ -157,7 +157,7 @@ exec --no-startup-id fcitx
 bindsym $mod+Return exec --no-startup-id konsole
 
 # launch krunner
-bindsym $mod+d exec --no-startup-id krunner
+bindsym $mod+d exec --no-startup-id dia
 
 # launch yakuake
 bindsym $win+z exec --no-startup-id yakuake
@@ -270,6 +270,7 @@ assign [class="Wps"] $WS8
 assign [class="Typora"] $WS8
 assign [class="XMind ZEN"] $WS8
 assign [class="XMind"] $WS8
+assign [class="Dia"] $WS8
 assign [class="vlc"] $WS9
 assign [class="Gimp"] $WS10
 assign [class="Easytag"] $WS10
