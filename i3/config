@@ -225,7 +225,7 @@ client.unfocused #333333 #333333 #888888 #292d2e
 # Google
 bindsym $mod+g exec --no-startup-id google-chrome-stable
 # Typora
-bindsym $mod+t exec --no-startup-id Typora
+bindsym $mod+t exec --no-startup-id typora
 # Clion
 bindsym $mod+c exec --no-startup-id clion
 # IDEA

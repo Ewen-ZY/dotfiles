@@ -6,7 +6,6 @@ automake
 bat
 bzip2
 calibre
-cheat-bash-git
 clang
 clion
 cloc
@@ -18,7 +17,6 @@ dhcpcd
 diffutils
 docker
 dolphin
-dpkg
 efibootmgr
 evince
 fcitx
@@ -49,7 +47,6 @@ hexyl
 htop
 i3-gaps
 i3lock
-icdiff
 intel-ucode
 intellij-idea-ultimate-edition
 jdk8
@@ -86,6 +83,7 @@ sed
 shadowsocks-libev
 stow
 sudo
+ttf-fira-code
 tar
 task
 tmux
@@ -99,6 +97,7 @@ vscodium-bin
 vsftpd
 wget
 wps-office
+wqy-zenhei
 xorg-server
 xorg-twm
 xorg-xinit
