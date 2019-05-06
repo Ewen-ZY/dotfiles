@@ -16,7 +16,13 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_CLONE=/usr/bin/virtualenv-clone
 
 ## /* basic config */
-ZSH_THEME="ys_ewen"
+if [ -f .oh-my-zsh/themes/ys_ewen.zsh-theme ]; then
+    # ys_ewen is a theme with simple path info based on ys theme
+    ZSH_THEME="ys_ewen"
+else
+    # basic ys theme
+    ZSH_THEME="ys"
+fi
 HIST_STAMPS="yyyy-mm-dd"
 
 ## /* plugins */
@@ -28,8 +34,8 @@ plugins=(
 )
 
 ## /* plugins config */
-source $ZSH/oh-my-zsh.sh
-. /usr/share/autojump/autojump.zsh
+[ -f $ZSH/oh-my-zsh.sh  ] && source $ZSH/oh-my-zsh.sh
+[ -f /usr/share/autojump/autojump.zsh ] && . /usr/share/autojump/autojump.zsh
 # Autosuggestion Bindkey Ctrl+Space
 bindkey '^ ' autosuggest-accept
 
@@ -48,14 +54,10 @@ fi
 ##----------------------------------------------
 
 ## /* environment variables */
-# personal
-source ~/bin/myExport.sh
-
 # python virtual environment
-source /usr/bin/virtualenvwrapper.sh
+[ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
 
 ## /* aliases */
-alias rmuex='rm -rf ~/.idm/uex ~/.idm/*.spl /tmp/*.spl /tmp/*UEX*lock'
 alias tm='if which tmux > /dev/null 2>&1; then test -z "$TMUX" && (tmux attach || tmux new -s zy -n home); fi'
 alias echo='/bin/echo'
 alias ping="ping -c 9 -i 0.3"
@@ -65,21 +67,51 @@ alias du1='sudo du --max-depth=1 -h'
 alias h1="history -l -10"
 alias h2="history -l -20"
 alias h3="history -l -30"
-alias setproxy="source /home/ewen/bin/setproxy.sh"
-alias unsetproxy="source /home/ewen/bin/unsetproxy.sh;echoproxy"
-alias echoproxy='bash /home/ewen/bin/echoproxy.sh'
 alias testproxy='curl www.google.com'
 alias fzfview='fzf --height 60%  --preview "head -50 {}"'
 alias LA1='light -A 100'
 alias LA='light -A '
 alias LUU='light -U 70'
 alias LU='light -U '
-alias cman='man -M /usr/local/share/man/zh_CN'
 
 ## /* functions */
+# set shell & git proxy
+function setproxy() {
+    echo 'Set Proxy ...'
+    export http_proxy='localhost:8123'
+    export https_proxy='localhost:8123'
+    git config --global http.proxy 'localhost:8123'
+    git config --global https.proxy 'localhost:8123'
+    echoproxy
+}
 
-## /* print */
-echo -e "\t\033[0;32m`date`\033[0m"
-echo -e "\t过去属于死神，未来属于自己。  ——雪莱" | lolcat
-echo -e "\t故天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。——《孟子·告天下》" | lolcat
-fortune | lolcat
+# print shell & git proxy
+function echoproxy() {
+    echo 'Print proxys ...'
+    ewa=`git config --global http.proxy`
+    ewb=`git config --global https.proxy`
+    echo "git http.proxy=${ewa:-null}"
+    echo "git https.proxy=${ewb:-null}"
+    echo "shell http_proxy=${http_proxy:-null}"
+    echo "shell https_proxy=${https_proxy:-null}"
+}
+
+# unset shell & git proxys
+function unsetproxy() {
+    echo 'Unset proxys ...'
+    unset http_proxy https_proxy
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+    echoproxy
+}
+
+# print some slogans
+function mySlogan() {
+    echo -e "\t\033[0;32m`date`\033[0m"
+    if which lolcat > /dev/null 2>&1; then
+        echo -e "\t过去属于死神，未来属于自己。  ——雪莱" | lolcat
+        echo -e "\t故天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。——《孟子·告天下》" | lolcat
+        fortune | lolcat
+    fi
+}
+mySlogan
