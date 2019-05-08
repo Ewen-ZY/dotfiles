@@ -1,44 +1,116 @@
-!!$HOME/.Xresources
-URxvt.preeditType:Root
-!!调整此处设置输入法
-URxvt.inputMethod:fcitx
-!!颜色设置
-URxvt.depth:32
-!!中括号内数表示透明度
-URxvt.inheritPixmap:true
-URxvt.background:#000000
-URxvt.foreground:#ffffff
-URxvt.colorBD:Gray95
-URxvt.colorUL:Green
-URxvt.color1:Red2
-URxvt.color4:RoyalBlue
-URxvt.color5:Magenta2
-URxvt.color8:Gray50
-URxvt.color10:Green2
-URxvt.color12:DodgerBlue
-URxvt.color14:Cyan2
-URxvt.color15:Gray95
-!!URL操作
-URxvt.urlLauncher:chromium
-URxvt.matcher.button:1
-Urxvt.perl-ext-common:matcher
-!!滚动条设置
-URxvt.scrollBar:False
-URxvt.scrollBar_floating:False
-URxvt.scrollstyle:plain
-!!滚屏设置
-URxvt.mouseWheelScrollPage:True
-URxvt.scrollTtyOutput:False
-URxvt.scrollWithBuffer:True
-URxvt.scrollTtyKeypress:True
-!!光标闪烁
-URxvt.cursorBlink:True
-URxvt.saveLines:5000
-!!边框
-URxvt.borderLess:False
-!!字体设置
-Xft.dpi:96
-!!URxvt.font:xft:Source Code Pro:antialias=True:pixelsize=18,xft:WenQuanYi Zen Hei:pixelsize=18
-!!URxvt.boldfont:xft:Source Code Pro:antialias=True:pixelsize=18,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt.font:xft:Fira Code:size=16:style=regular:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt.boldfont:xft:Fira Code:size=16:style=bold:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!                                                            !!
+!! Description: URxvt configuration with Tango color scheme.  !!
+!! Author: Ewen Lai, named 赖伟文                             !!
+!! Create time: 2019-05-07 Tue 14:40:58                       !!
+!! URLs: https://wiki.archlinux.org/index.php/Rxvt-unicode    !!
+!!                                                            !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!! Color define
+#define     dark_black          #2e3436
+#define     light_black         #6e706b
+#define     dark_red            #cc0000
+#define     light_red           #ef2929
+#define     dark_green          #4e9a06
+#define     light_green         #8ae234
+#define     dark_yellow         #edd400
+#define     light_yellow        #fce94f
+#define     dark_blue           #3465a4
+#define     light_blue          #729fcf
+#define     dark_magenta        #92659a
+#define     light_magenta       #c19fbe
+#define     dark_cyan           #07c7ca
+#define     light_cyan          #63e9e9
+#define     dark_white          #babdb6
+#define     light_white         #eeeeec
+
+!! input method
+! input style
+URxvt.preeditType:              Root
+! input method
+URxvt.inputMethod:              fcitx
+
+URxvt.depth:                    32
+
+URxvt.inheritPixmap:            true
+
+!! Tango color palette
+URxvt.background:               dark_black
+URxvt.foreground:               dark_white
+URxvt.cursorColor:              light_green
+! foreground color for underline
+URxvt.colorUL:                  dark_white
+! line color for underline
+URxvt.underlineColor:           dark_white
+! black dark/light
+URxvt.color0:                   dark_black
+URxvt.color8:                   light_black
+! red dark/light
+URxvt.color1:                   dark_red
+URxvt.color9:                   light_red
+! green dark/light
+URxvt.color2:                   dark_green
+URxvt.color10:                  light_green
+! yellow dark/light
+URxvt.color3:                   dark_yellow
+URxvt.color11:                  light_yellow
+! blue dark/light
+URxvt.color4:                   dark_blue
+URxvt.color12:                  light_blue
+! magenta dark/light
+URxvt.color5:                   dark_magenta
+URxvt.color13:                  light_magenta
+! cyan dark/light
+URxvt.color6:                   dark_cyan
+URxvt.color14:                  light_cyan
+! white dark/light
+URxvt.color7:                   dark_white
+URxvt.color15:                  light_white
+
+URxvt.shading:                  50
+!! fade while losing focus
+URxvt.fading:                   50
+URxvt.fadeColor:                dark_magenta
+
+!! Extension
+URxvt.perl-ext-common:          default,matcher,selection-to-clipboard,keyboard-select,fullscreen,resize-font,url-select
+URxvt.perl-lib:                 /usr/lib/urxvt/perl/
+! keyboard select
+URxvt.keysym.M-a:               perl:keyboard-select:activate
+! URL select
+URxvt*keysym.M-u:               perl:url-select:select_next
+URxvt*url-select.launcher:      /usr/bin/xdg-open
+URxvt*url-select.underline:     true
+URxvt*matcher.button:           1
+! fullscreen
+urxvt*keysym.F11:               perl:fullscreen:switch
+
+!! scroll bar
+URxvt*scrollBar:                False
+URxvt*scrollBar_floating:       False
+URxvt*scrollstyle:              plain
+URxvt*saveLines:                5000
+URxvt*mouseWheelScrollPage:     True
+URxvt*scrollTtyOutput:          False
+URxvt*scrollWithBuffer:         True
+URxvt*scrollTtyKeypress:        True
+
+!! cursor
+! default cursor shape: block
+URxvt.cursorUnderline:          False
+URxvt.cursorBlink:              True
+
+!! pointer
+URxvt.pointerBlank:             True
+URxvt.pointerBlankDelay:        5
+
+!! border
+URxvt.borderLess:               False
+
+!! font
+Xft.dpi:                        96
+URxvt*font:                     xft:Fira Code:style=Regular:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*boldFont:                 xft:Fira Code:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*italicFont:               xft:Fira Code:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*boldItalicFont:           xft:Fira Code:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18

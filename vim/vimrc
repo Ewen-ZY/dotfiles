@@ -118,6 +118,7 @@ let maplocalleader=','
 
 " Always display tabline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " NERDTree
 let g:NERDTreeWinSize = 20

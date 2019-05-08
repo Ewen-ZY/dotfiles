@@ -151,23 +151,23 @@ exec --no-startup-id volumeicon
 # Launch Sogou Input
 exec --no-startup-id fcitx 
 
+# Launch polybar
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # /* basic apps */
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
-# launch krunner
+# launch Dia
 bindsym $mod+d exec --no-startup-id dia
-
-# launch yakuake
-bindsym $win+z exec --no-startup-id yakuake
 
 # Screenshot
 bindsym Print exec --no-startup-id flameshot gui
 
 # i3lock
 # Set i3lock background image
-set $i3LOCKIMAGE "/usr/local/etc/images/TheGirl.jpg"
+set $i3LOCKIMAGE "/usr/share/pixmaps/images/TheGirl.jpg"
 mode "i3lock: Return to lock/Escape to Cancel" {
         bindsym Return mode "default" exec --no-startup-id i3lock -i $i3LOCKIMAGE
         bindsym Escape mode "default" 
@@ -278,5 +278,6 @@ assign [class="Easytag"] $WS10
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id albert
 exec --no-startup-id urxvt
+exec --no-startup-id guake
 
 # end

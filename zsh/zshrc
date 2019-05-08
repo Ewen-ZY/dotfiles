@@ -16,7 +16,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_CLONE=/usr/bin/virtualenv-clone
 
 ## /* basic config */
-if [ -f .oh-my-zsh/themes/ys_ewen.zsh-theme ]; then
+if [ -f ~/.oh-my-zsh/themes/ys_ewen.zsh-theme ]; then
     # ys_ewen is a theme with simple path info based on ys theme
     ZSH_THEME="ys_ewen"
 else
@@ -111,7 +111,9 @@ function mySlogan() {
     if which lolcat > /dev/null 2>&1; then
         echo -e "\t过去属于死神，未来属于自己。  ——雪莱" | lolcat
         echo -e "\t故天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。——《孟子·告天下》" | lolcat
-        fortune | lolcat
+        if which fortune > /dev/null 2>&1; then
+            fortune | lolcat
+        fi
     fi
 }
 mySlogan
