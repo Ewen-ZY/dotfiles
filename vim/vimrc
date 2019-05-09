@@ -78,7 +78,6 @@ set shiftwidth=4
 " Set search options'
 set incsearch
 set hlsearch
-set ignorecase
 " Set completion operations in an enhanced mode
 set wildmenu
 " Set desert as colorscheme

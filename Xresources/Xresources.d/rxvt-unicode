@@ -68,7 +68,7 @@ URxvt.color14:                  light_cyan
 URxvt.color7:                   dark_white
 URxvt.color15:                  light_white
 
-URxvt.shading:                  50
+URxvt.shading:                  25
 !! fade while losing focus
 URxvt.fading:                   50
 URxvt.fadeColor:                dark_magenta
