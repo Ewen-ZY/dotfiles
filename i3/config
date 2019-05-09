@@ -88,14 +88,10 @@ bindsym $Alt+Shift+8 move container to workspace $WS8
 bindsym $Alt+Shift+9 move container to workspace $WS9
 bindsym $Alt+Shift+0 move container to workspace $WS10
 
-# i3 gap and border starts
-gaps inner 8
-gaps outer 8
-set $default_gaps_inner 8
-set $default_gaps_outer -8
+# i3 gap and border
+gaps inner 16
+gaps outer 0
 smart_borders on
-# show gaps when two or more windows
-# smart_gaps on
 
 # kill focused window
 bindsym $Alt+q kill
