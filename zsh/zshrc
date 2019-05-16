@@ -69,10 +69,12 @@ alias h2="history -l -20"
 alias h3="history -l -30"
 alias testproxy='curl www.google.com'
 alias fzfview='fzf --height 60%  --preview "head -50 {}"'
-alias LA1='light -A 100'
+# light aliases
 alias LA='light -A '
-alias LUU='light -U 70'
 alias LU='light -U '
+# hexo aliases
+alias hexod='setproxy && hexo clean && hexo generate -d && unsetproxy'
+alias hexos='hexo clean && hexo generate && hexo server -d'
 
 ## /* functions */
 # set shell & git proxy
@@ -105,12 +107,17 @@ function unsetproxy() {
     echoproxy
 }
 
+# Typora open markdown function
+function tmk() {
+    /usr/bin/typora $1 > /dev/null 2&>1 &
+}
+
 # print some slogans
 function mySlogan() {
     echo -e "\t\033[0;32m`date`\033[0m"
     if which lolcat > /dev/null 2>&1; then
         echo -e "\t过去属于死神，未来属于自己。  ——雪莱" | lolcat
-        echo -e "\t故天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，曾益其所不能。——《孟子·告天下》" | lolcat
+        echo ''
         if which fortune > /dev/null 2>&1; then
             fortune | lolcat
         fi

@@ -133,7 +133,7 @@ exec --no-startup-id xset dpms 1200
 exec --no-startup-id xrandr --output HDMI1 --left-of eDP1 --primary
 
 # Set background image
-set $i3BGIMAGE "/usr/local/etc/images/gongshuisanye.png"
+set $i3BGIMAGE "/usr/share/pixmaps/images/gongshuisanye.png"
 exec --no-startup-id feh --bg-fill $i3BGIMAGE
 
 # Transparent all windows
@@ -227,6 +227,8 @@ bindsym $Alt+p exec --no-startup-id pycharm
 bindsym $Win+p exec --no-startup-id vscodium
 # Foxit Reader
 bindsym $Alt+b exec --no-startup-id foxitreader
+# Com.github.babluboy.bookworm
+bindsym $Win+b exec --no-startup-id com.github.babluboy.bookworm
 # calibre
 bindsym $Win+c exec --no-startup-id calibre
 
@@ -249,6 +251,7 @@ assign [class="jetbrains-idea"] $WS6
 assign [class="Wireshark"] $WS6
 assign [class="Postman"] $WS6
 assign [class="Foxit Reader"] $WS7
+assign [class="Com.github.babluboy.bookworm"] $WS7
 assign [class="calibre"] $WS7
 assign [class="Et"] $WS8
 assign [class="Wpp"] $WS8

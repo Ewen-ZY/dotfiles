@@ -70,6 +70,7 @@ npm
 ntfs-3g
 openssh
 os-prober
+p7zip
 pacman
 pandoc
 polipo
@@ -87,13 +88,14 @@ sed
 shadowsocks-libev
 stow
 sudo
-ttf-dejavu
-ttf-fira-code
 tar
 task
+the_silver_searcher
+tldr
 tmux
 tree
-the_silver_searcher
+ttf-dejavu
+ttf-fira-code
 unzip
 urxvt-perls
 vim

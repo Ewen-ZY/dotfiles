@@ -8,109 +8,110 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 !! Color define
-#define     dark_black          #2e3436
-#define     light_black         #6e706b
-#define     dark_red            #cc0000
-#define     light_red           #ef2929
-#define     dark_green          #4e9a06
-#define     light_green         #8ae234
-#define     dark_yellow         #edd400
-#define     light_yellow        #fce94f
-#define     dark_blue           #3465a4
-#define     light_blue          #729fcf
-#define     dark_magenta        #92659a
-#define     light_magenta       #c19fbe
-#define     dark_cyan           #07c7ca
-#define     light_cyan          #63e9e9
-#define     dark_white          #babdb6
-#define     light_white         #eeeeec
+#define     dark_black                  #2e3436
+#define     light_black                 #6e706b
+#define     dark_red                    #cc0000
+#define     light_red                   #ef2929
+#define     dark_green                  #4e9a06
+#define     light_green                 #8ae234
+#define     dark_yellow                 #edd400
+#define     light_yellow                #fce94f
+#define     dark_blue                   #3465a4
+#define     light_blue                  #729fcf
+#define     dark_magenta                #92659a
+#define     light_magenta               #c19fbe
+#define     dark_cyan                   #07c7ca
+#define     light_cyan                  #63e9e9
+#define     dark_white                  #babdb6
+#define     light_white                 #eeeeec
 
 !! input method
 ! input style
-URxvt.preeditType:              Root
+URxvt.preeditType:                      Root
 ! input method
-URxvt.inputMethod:              fcitx
+URxvt.inputMethod:                      fcitx
 
-URxvt.depth:                    32
+URxvt.depth:                            32
 
-URxvt.inheritPixmap:            true
+URxvt.inheritPixmap:                    true
 
 !! Tango color palette
-URxvt.background:               dark_black
-URxvt.foreground:               dark_white
-URxvt.cursorColor:              light_green
-! foreground color for underline
-URxvt.colorUL:                  dark_white
+URxvt.background:                       dark_black
+URxvt.foreground:                       dark_white
+URxvt.cursorColor:                      light_green
+! foreground color for underline        
+URxvt.colorUL:                          dark_white
 ! line color for underline
-URxvt.underlineColor:           dark_white
+URxvt.underlineColor:                   dark_white
 ! black dark/light
-URxvt.color0:                   dark_black
-URxvt.color8:                   light_black
+URxvt.color0:                           dark_black
+URxvt.color8:                           light_black
 ! red dark/light
-URxvt.color1:                   dark_red
-URxvt.color9:                   light_red
+URxvt.color1:                           dark_red
+URxvt.color9:                           light_red
 ! green dark/light
-URxvt.color2:                   dark_green
-URxvt.color10:                  light_green
+URxvt.color2:                           dark_green
+URxvt.color10:                          light_green
 ! yellow dark/light
-URxvt.color3:                   dark_yellow
-URxvt.color11:                  light_yellow
+URxvt.color3:                           dark_yellow
+URxvt.color11:                          light_yellow
 ! blue dark/light
-URxvt.color4:                   dark_blue
-URxvt.color12:                  light_blue
+URxvt.color4:                           dark_blue
+URxvt.color12:                          light_blue
 ! magenta dark/light
-URxvt.color5:                   dark_magenta
-URxvt.color13:                  light_magenta
+URxvt.color5:                           dark_magenta
+URxvt.color13:                          light_magenta
 ! cyan dark/light
-URxvt.color6:                   dark_cyan
-URxvt.color14:                  light_cyan
+URxvt.color6:                           dark_cyan
+URxvt.color14:                          light_cyan
 ! white dark/light
-URxvt.color7:                   dark_white
-URxvt.color15:                  light_white
+URxvt.color7:                           dark_white
+URxvt.color15:                          light_white
 
-URxvt.shading:                  25
+URxvt.shading:                          25
 !! fade while losing focus
-URxvt.fading:                   50
-URxvt.fadeColor:                dark_magenta
+URxvt.fading:                           20
+URxvt.fadeColor:                        dark_magenta
 
 !! Extension
-URxvt.perl-ext-common:          default,matcher,selection-to-clipboard,keyboard-select,fullscreen,resize-font,url-select
-URxvt.perl-lib:                 /usr/lib/urxvt/perl/
+URxvt.perl-ext-common:                  default,matcher,selection-to-clipboard,keyboard-select,fullscreen,resize-font,url-select
+URxvt.perl-lib:                         /usr/lib/urxvt/perl/
 ! keyboard select
-URxvt.keysym.M-a:               perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard:        True
+URxvt.keysym.M-a:                       perl:keyboard-select:activate
 ! URL select
-URxvt*keysym.M-u:               perl:url-select:select_next
-URxvt*url-select.launcher:      /usr/bin/xdg-open
-URxvt*url-select.underline:     true
-URxvt*matcher.button:           1
+URxvt*keysym.M-u:                       perl:url-select:select_next
+URxvt*url-select.launcher:              /usr/bin/xdg-open
+URxvt*url-select.underline:             true
+URxvt*matcher.button:                   1
 ! fullscreen
-urxvt*keysym.F11:               perl:fullscreen:switch
+urxvt*keysym.F11:                       perl:fullscreen:switch
 
 !! scroll bar
-URxvt*scrollBar:                False
-URxvt*scrollBar_floating:       False
-URxvt*scrollstyle:              plain
-URxvt*saveLines:                5000
-URxvt*mouseWheelScrollPage:     True
-URxvt*scrollTtyOutput:          False
-URxvt*scrollWithBuffer:         True
-URxvt*scrollTtyKeypress:        True
+URxvt*scrollBar:                        False
+URxvt*scrollBar_floating:               False
+URxvt*scrollstyle:                      plain
+URxvt*saveLines:                        5000
+URxvt*mouseWheelScrollPage:             True
+URxvt*scrollTtyOutput:                  False
+URxvt*scrollWithBuffer:                 True
+URxvt*scrollTtyKeypress:                True
 
 !! cursor
 ! default cursor shape: block
-URxvt.cursorUnderline:          False
-URxvt.cursorBlink:              True
+URxvt.cursorUnderline:                  False
+URxvt.cursorBlink:                      True
 
 !! pointer
-URxvt.pointerBlank:             True
-URxvt.pointerBlankDelay:        5
+URxvt.pointerBlank:                     True
+URxvt.pointerBlankDelay:                5
 
 !! border
-URxvt.borderLess:               False
+URxvt.borderLess:                       False
 
 !! font
-Xft.dpi:                        96
-URxvt*font:                     xft:Fira Code:style=Regular:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt*boldFont:                 xft:Fira Code:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt*italicFont:               xft:Fira Code:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt*boldItalicFont:           xft:Fira Code:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+Xft.dpi:                                96
+URxvt*font:                             xft:Fira Code:style=Regular:size=15:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*boldFont:                         xft:Fira Code:style=Bold:size=15:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*italicFont:                       xft:Fira Code:style=Bold:size=15:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*boldItalicFont:                   xft:Fira Code:style=Bold:size=15:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
