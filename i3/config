@@ -161,7 +161,7 @@ bindsym Print exec --no-startup-id flameshot gui
 
 # i3lock
 # Set i3lock background image
-set $i3LOCKIMAGE "/usr/share/pixmaps/images/TheGirl.jpg"
+set $i3LOCKIMAGE "/home/ewen/Pictures/wallpaper/i3lock/TheGirl.png"
 mode "i3lock: Return to lock/Escape to Cancel" {
         bindsym Return mode "default" exec --no-startup-id i3lock -i $i3LOCKIMAGE
         bindsym Escape mode "default" 
