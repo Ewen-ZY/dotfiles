@@ -195,6 +195,7 @@ let g:ycm_filetype_whitelist = {
             \ "make":1,
             \ "sudoers":1,
             \ "conf":1,
+            \ "javascript":1,
             \ "xdefaults":1,
             \ "systemd":1,
             \ }
