@@ -198,6 +198,7 @@ let g:ycm_filetype_whitelist = {
             \ "javascript":1,
             \ "xdefaults":1,
             \ "systemd":1,
+            \ "yaml":1,
             \ }
 
 " Markdown
@@ -249,7 +250,7 @@ nnoremap <F5> :bnext<CR>
 " Goto the end line of file
 nnoremap G Gzz
 " Get local time
-nnoremap <F2> a<C-R>=strftime("%Y-%m-%d week%u %H:%M:%S")<CR>
+nnoremap <F2> a<C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR>
 inoremap <localleader><localleader> <localleader>
 
 " Preview

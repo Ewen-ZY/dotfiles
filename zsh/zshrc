@@ -57,9 +57,13 @@ fi
 # python virtual environment
 [ -f /usr/bin/virtualenvwrapper.sh ] && source /usr/bin/virtualenvwrapper.sh
 
+# tmuxinator completion file
+[ -f /usr/bin/tmuxinator ] && source ~/bin/tmuxinator.zsh
+
 ## /* aliases */
 alias tm='if which tmux > /dev/null 2>&1; then test -z "$TMUX" && (tmux attach || tmux new -s zy -n home); fi'
-alias echo='/bin/echo'
+alias echo='/usr/bin/echo'
+alias printf='/usr/bin/printf'
 alias ping="ping -c 9 -i 0.3"
 alias view="vim -R"
 alias vi="vim"
@@ -75,6 +79,10 @@ alias LU='light -U '
 # hexo aliases
 alias hexod='setproxy && hexo clean && hexo generate -d && unsetproxy'
 alias hexos='hexo clean && hexo generate && hexo server -d'
+# tmux
+alias tpmclean='~/.tmux/plugins/tpm/scripts/clean_plugins.sh'
+alias tpminstall='~/.tmux/plugins/tpm/scripts/install_plugins.sh'
+alias tpmupdate='~/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh all'
 
 ## /* functions */
 # set shell & git proxy
