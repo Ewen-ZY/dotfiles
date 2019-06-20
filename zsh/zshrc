@@ -115,7 +115,7 @@ function unsetproxy() {
     echoproxy
 }
 
-# Typora open markdown function
+# open markdown function by Typora
 function tmk() {
     /usr/bin/typora $1 > /dev/null 2>&1 &
 }
