@@ -98,13 +98,11 @@ set encoding=utf-8
 "----------------------------------------
 " My iabbrev
 "----------------------------------------
-inoreabbrev bj 计算机zy1502
 inoreabbrev xh 0121510870905
 inoreabbrev sfz 360734199611078232
 inoreabbrev yx@ lwwens@gmail.com
-inoreabbrev ccp Copyright  Ewen Lai, all rights reserved.
-inoreabbrev myweb https://gitee.com/lwwens/events
-inoreabbrev gitweb https://github.com/52101107
+inoreabbrev ccp Copyright Ewen Lai, all rights reserved.
+inoreabbrev gitweb https://github.com/Ewen-ZY
 inoreabbrev csdnweb https://blog.csdn.net/aq931752921
 cnoreabbrev vbh vertical botright help
 
@@ -113,11 +111,32 @@ cnoreabbrev vbh vertical botright help
 "----------------------------------------
 " Set MapLocalLeader
 let maplocalleader=','
-" let mapleader=','
+let mapleader='\'
 
 " Always display tabline
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:powerline_pycmd = "py3"
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " NERDTree
 let g:NERDTreeWinSize = 20
@@ -250,7 +269,7 @@ nnoremap <F5> :bnext<CR>
 " Goto the end line of file
 nnoremap G Gzz
 " Get local time
-nnoremap <F2> a<C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR>
+nnoremap <F2> a<C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR><ESC>
 inoremap <localleader><localleader> <localleader>
 
 " Preview
@@ -267,6 +286,21 @@ nnoremap <localleader>f :LeaderfSelf<cr>
 " YouCompleteMe
 nnoremap <localleader>z :YcmCompleter GoToDeclaration<cr>
 nnoremap <localleader>c :YcmCompleter GoToDefinition<cr>
+
+" 插入递增的列表编号
+let counter = 0
+inoremap <expr> <C-L> ListItem()
+inoremap <expr> <C-R> ListReset()
+
+func ListItem()
+    let g:counter += 1
+    return g:counter . '. '
+endfunc
+
+func ListReset()
+    let g:counter = 0
+    return ''
+endfunc
 
 "----------------------------------------
 " Vim customized command

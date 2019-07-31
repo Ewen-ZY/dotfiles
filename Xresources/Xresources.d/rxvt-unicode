@@ -111,7 +111,7 @@ URxvt.borderLess:                       False
 
 !! font
 Xft.dpi:                                96
-URxvt*font:                             xft:Fira Code:style=Regular:size=14:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt*boldFont:                         xft:Fira Code:style=Bold:size=14:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt*italicFont:                       xft:Fira Code:style=Bold:size=14:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
-URxvt*boldItalicFont:                   xft:Fira Code:style=Bold:size=14:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*font:                             xft:Consolas:style=Regular:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*boldFont:                         xft:Consolas:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*italicFont:                       xft:Consolas:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18
+URxvt*boldItalicFont:                   xft:Consolas:style=Bold:size=16:antialias=True,xft:WenQuanYi Zen Hei:pixelsize=18

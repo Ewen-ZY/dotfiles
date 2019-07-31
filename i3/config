@@ -127,7 +127,7 @@ bindsym $Alt+r mode "resize"
 # /* basic auto launch */
 
 # Auto sleep
-exec --no-startup-id xset dpms 1200
+exec --no-startup-id xset dpms 300
 
 # Set primary 
 # exec --no-startup-id xrandr --output HDMI1 --left-of eDP1 --primary
@@ -144,6 +144,9 @@ exec --no-startup-id volumeicon
 
 # Launch Sogou Input
 exec --no-startup-id fcitx 
+
+# disable bell
+exec --no-startup-id xset -b
 
 # Launch polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh

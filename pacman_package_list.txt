@@ -112,7 +112,7 @@ xorg-twm
 xorg-xinit
 xorg-xkill
 xorg-xrandr
-yakuake
+guake
 yay
 youtube-dl
 zip
