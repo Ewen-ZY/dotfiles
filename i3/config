@@ -3,90 +3,90 @@
 # basic
 # -----------------------------------------------------------------
 
-set $Alt Mod1
-set $Win Mod4
+set $WIN Mod4
+set $ALT Mod1
 
 # Font for window titles
-font pango:Fira Code 10
+font pango: Consolas 10
 
-# Use Mouse+$Alt to drag floating windows to their wanted position
-floating_modifier $Alt
+# Use Mouse+$WIN to drag floating windows to their wanted position
+floating_modifier $WIN
 
 # change focus
-bindsym $Alt+h focus left
-bindsym $Alt+j focus down
-bindsym $Alt+k focus up
-bindsym $Alt+l focus right
+bindsym $WIN+h focus left
+bindsym $WIN+j focus down
+bindsym $WIN+k focus up
+bindsym $WIN+l focus right
 
 # use the cursor keys to move container
-bindsym $Alt+Right move container to workspace next; workspace next
-bindsym $Alt+Left  move container to workspace prev; workspace prev
+bindsym $WIN+Right move container to workspace next; workspace next
+bindsym $WIN+Left  move container to workspace prev; workspace prev
 
 # move focused window
-bindsym $Alt+Shift+h move left
-bindsym $Alt+Shift+j move down
-bindsym $Alt+Shift+k move up
-bindsym $Alt+Shift+l move right
+bindsym $WIN+Shift+h move left
+bindsym $WIN+Shift+j move down
+bindsym $WIN+Shift+k move up
+bindsym $WIN+Shift+l move right
 
 # split in horizontal orientation
-bindsym $Alt+semicolon  split h
+bindsym $WIN+semicolon  split h
 # split in vertical orientation
-bindsym $Alt+v split v
+bindsym $WIN+v split v
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $Alt+s layout stacking
-bindsym $Alt+w layout tabbed
-bindsym $Alt+e layout toggle split
+bindsym $WIN+s layout stacking
+bindsym $WIN+w layout tabbed
+bindsym $WIN+e layout toggle split
 
 # toggle tiling / floating
-bindsym $Alt+space floating toggle
+bindsym $WIN+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $Alt+Shift+space focus mode_toggle
+bindsym $WIN+Shift+space focus mode_toggle
 
 # Adjust windows border
 new_window none
 new_float none
 hide_edge_borders none
-bindsym $Alt+n border none
-bindsym $Alt+m border normal
+bindsym $WIN+n border none
+bindsym $WIN+m border normal
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $WS1 "1:Brower"
 set $WS2 "2:Console"
-set $WS3 "3:Music"
+set $WS3 "3:Doc"
 set $WS4 "4:Clion"
 set $WS5 "5:PyCharm"
 set $WS6 "6:Idea"
 set $WS7 "7:Read"
-set $WS8 "8:Doc"
+set $WS8 "8:Music"
 set $WS9 "9:Videos"
 set $WS10 "10:Tool"
 
 # switch to workspace
-bindsym $Alt+1 workspace $WS1
-bindsym $Alt+2 workspace $WS2
-bindsym $Alt+3 workspace $WS3
-bindsym $Alt+4 workspace $WS4
-bindsym $Alt+5 workspace $WS5
-bindsym $Alt+6 workspace $WS6
-bindsym $Alt+7 workspace $WS7
-bindsym $Alt+8 workspace $WS8
-bindsym $Alt+9 workspace $WS9
-bindsym $Alt+0 workspace $WS10
+bindsym $WIN+1 workspace $WS1
+bindsym $WIN+2 workspace $WS2
+bindsym $WIN+3 workspace $WS3
+bindsym $WIN+4 workspace $WS4
+bindsym $WIN+5 workspace $WS5
+bindsym $WIN+6 workspace $WS6
+bindsym $WIN+7 workspace $WS7
+bindsym $WIN+8 workspace $WS8
+bindsym $WIN+9 workspace $WS9
+bindsym $WIN+0 workspace $WS10
 
 # move focused container to workspace
-bindsym $Alt+Shift+1 move container to workspace $WS1
-bindsym $Alt+Shift+2 move container to workspace $WS2
-bindsym $Alt+Shift+3 move container to workspace $WS3
-bindsym $Alt+Shift+4 move container to workspace $WS4
-bindsym $Alt+Shift+5 move container to workspace $WS5
-bindsym $Alt+Shift+6 move container to workspace $WS6
-bindsym $Alt+Shift+7 move container to workspace $WS7
-bindsym $Alt+Shift+8 move container to workspace $WS8
-bindsym $Alt+Shift+9 move container to workspace $WS9
-bindsym $Alt+Shift+0 move container to workspace $WS10
+bindsym $WIN+Shift+1 move container to workspace $WS1
+bindsym $WIN+Shift+2 move container to workspace $WS2
+bindsym $WIN+Shift+3 move container to workspace $WS3
+bindsym $WIN+Shift+4 move container to workspace $WS4
+bindsym $WIN+Shift+5 move container to workspace $WS5
+bindsym $WIN+Shift+6 move container to workspace $WS6
+bindsym $WIN+Shift+7 move container to workspace $WS7
+bindsym $WIN+Shift+8 move container to workspace $WS8
+bindsym $WIN+Shift+9 move container to workspace $WS9
+bindsym $WIN+Shift+0 move container to workspace $WS10
 
 # i3 gap and border
 gaps inner 16
@@ -94,15 +94,15 @@ gaps outer 0
 smart_borders on
 
 # kill focused window
-bindsym $Alt+q kill
+bindsym $WIN+q kill
 
 # reload the configuration file
-bindsym $Alt+Shift+c reload
+bindsym $WIN+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $Alt+Shift+r restart
+bindsym $WIN+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $Alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $WIN+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -122,7 +122,7 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-bindsym $Alt+r mode "resize"
+bindsym $WIN+r mode "resize"
 
 # /* basic auto launch */
 
@@ -154,10 +154,10 @@ exec --no-startup-id xset -b
 # /* basic apps */
 
 # start a terminal
-bindsym $Alt+Return exec --no-startup-id i3-sensible-terminal
+bindsym $WIN+Return exec --no-startup-id i3-sensible-terminal
 
 # launch Dia
-bindsym $Alt+d exec --no-startup-id dia
+bindsym $WIN+d exec --no-startup-id dia
 
 # Screenshot
 bindsym Print exec --no-startup-id flameshot gui
@@ -169,7 +169,7 @@ mode "i3lock: Return to lock/Escape to Cancel" {
         bindsym Return mode "default" exec --no-startup-id i3lock -i $i3LOCKIMAGE
         bindsym Escape mode "default" 
 }
-bindsym $Alt+x mode "i3lock: Return to lock/Escape to Cancel"
+bindsym $WIN+x mode "i3lock: Return to lock/Escape to Cancel"
 
 # Bightness Manage
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 3
@@ -217,23 +217,23 @@ client.unfocused #333333 #333333 #888888 #292d2e
 # -----------------------------------------------------------------
 
 # Google
-bindsym $Alt+g exec --no-startup-id google-chrome-stable
+bindsym $WIN+g exec --no-startup-id google-chrome-stable
 # Typora
-bindsym $Alt+t exec --no-startup-id typora
+bindsym $WIN+t exec --no-startup-id typora
 # Clion
-bindsym $Alt+c exec --no-startup-id clion
+bindsym $WIN+c exec --no-startup-id clion
 # IDEA
-bindsym $Alt+i exec --no-startup-id idea
+bindsym $WIN+i exec --no-startup-id idea
 # PyCharm
-bindsym $Alt+p exec --no-startup-id pycharm
+bindsym $WIN+p exec --no-startup-id pycharm
 # VSCodium
-bindsym $Win+p exec --no-startup-id vscodium
+bindsym $ALT+p exec --no-startup-id vscodium
 # Foxit Reader
-bindsym $Alt+b exec --no-startup-id foxitreader
+bindsym $WIN+b exec --no-startup-id foxitreader
 # Com.github.babluboy.bookworm
-bindsym $Win+b exec --no-startup-id com.github.babluboy.bookworm
+bindsym $ALT+b exec --no-startup-id com.github.babluboy.bookworm
 # calibre
-bindsym $Win+c exec --no-startup-id calibre
+bindsym $ALT+c exec --no-startup-id calibre
 
 # apps specification
 for_window [class="yakuake"] floating enable; border none
@@ -246,7 +246,13 @@ for_window [class="Lightdm-gtk-greeter-settings"] floating enable;
 assign [class="Google-chrome"] $WS1
 assign [class="Firefox"] $WS1
 assign [class="URxvt"] $WS2
-assign [class="netease-cloud-music"] $WS3
+assign [class="Et"] $WS3
+assign [class="Wpp"] $WS3
+assign [class="Wps"] $WS3
+assign [class="Typora"] $WS3
+assign [class="XMind ZEN"] $WS3
+assign [class="XMind"] $WS3
+assign [class="Dia"] $WS3
 assign [class="jetbrains-clion"] $WS4
 assign [class="jetbrains-pycharm"] $WS5
 assign [class="VSCodium"] $WS6
@@ -256,13 +262,7 @@ assign [class="Postman"] $WS6
 assign [class="Foxit Reader"] $WS7
 assign [class="Com.github.babluboy.bookworm"] $WS7
 assign [class="calibre"] $WS7
-assign [class="Et"] $WS8
-assign [class="Wpp"] $WS8
-assign [class="Wps"] $WS8
-assign [class="Typora"] $WS8
-assign [class="XMind ZEN"] $WS8
-assign [class="XMind"] $WS8
-assign [class="Dia"] $WS8
+assign [class="netease-cloud-music"] $WS8
 assign [class="vlc"] $WS9
 assign [class="Gimp"] $WS10
 assign [class="Easytag"] $WS10
