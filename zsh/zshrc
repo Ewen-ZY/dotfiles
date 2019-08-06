@@ -27,10 +27,10 @@ HIST_STAMPS="yyyy-mm-dd"
 
 ## /* plugins */
 plugins=(
-  git
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  colored-man-pages
+    git
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    colored-man-pages
 )
 
 ## /* plugins config */
@@ -41,12 +41,12 @@ bindkey '^ ' autosuggest-accept
 
 # Set environment variables
 if [ -d /etc/profile.d ]; then
-  for i in /etc/profile.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
-    fi
-  done
-  unset i
+    for i in /etc/profile.d/*.sh; do
+        if [ -r $i ]; then
+            . $i
+        fi
+    done
+    unset i
 fi
 
 ##----------------------------------------------
@@ -62,27 +62,27 @@ fi
 
 ## /* aliases */
 alias tm='if which tmux > /dev/null 2>&1; then test -z "$TMUX" && (tmux attach || tmux new -s zy -n home); fi'
-alias echo='/usr/bin/echo'
-alias printf='/usr/bin/printf'
-alias ping="ping -c 9 -i 0.3"
-alias view="vim -R"
-alias vi="vim"
-alias du1='sudo du --max-depth=1 -h'
-alias h1="history -l -10"
-alias h2="history -l -20"
-alias h3="history -l -30"
-alias testproxy='curl www.google.com'
-alias fzfview='fzf --height 60%  --preview "head -50 {}"'
-# light aliases
-alias LA='light -A '
-alias LU='light -U '
-# hexo aliases
-alias hexod='setproxy && hexo clean && hexo generate -d && unsetproxy'
-alias hexos='hexo clean && hexo generate && hexo server -d'
-# tmux
-alias tpmclean='~/.tmux/plugins/tpm/scripts/clean_plugins.sh'
-alias tpminstall='~/.tmux/plugins/tpm/scripts/install_plugins.sh'
-alias tpmupdate='~/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh all'
+    alias echo='/usr/bin/echo'
+    alias printf='/usr/bin/printf'
+    alias ping="ping -c 9 -i 0.3"
+    alias view="vim -R"
+    alias vi="vim"
+    alias du1='sudo du --max-depth=1 -h'
+    alias h1="history -l -10"
+    alias h2="history -l -20"
+    alias h3="history -l -30"
+    alias testproxy='curl www.google.com'
+    alias fzfview='fzf --height 60%  --preview "head -50 {}"'
+    # light aliases
+    alias LA='light -A '
+    alias LU='light -U '
+    # hexo aliases
+    alias hexod='setproxy && hexo clean && hexo generate -d && unsetproxy'
+    alias hexos='hexo clean && hexo generate && hexo server -d'
+    # tmux
+    alias tpmclean='~/.tmux/plugins/tpm/scripts/clean_plugins.sh'
+    alias tpminstall='~/.tmux/plugins/tpm/scripts/install_plugins.sh'
+    alias tpmupdate='~/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh all'
 
 ## /* functions */
 # set shell & git proxy
@@ -123,12 +123,10 @@ function tmk() {
 # print some slogans
 function mySlogan() {
     echo -e "\t\033[0;32m`date`\033[0m"
-    if which lolcat > /dev/null 2>&1; then
-        echo -e "\t过去属于死神，未来属于自己。  ——雪莱" | lolcat
-        echo ''
-        if which fortune > /dev/null 2>&1; then
-            fortune | lolcat
-        fi
+    echo -e "\t过去属于死神，未来属于自己。  ——雪莱"
+    echo ''
+    if which fortune > /dev/null 2>&1; then
+        fortune
     fi
 }
 mySlogan
