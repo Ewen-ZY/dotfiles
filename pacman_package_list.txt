@@ -1,5 +1,6 @@
 albert
 archlinux-keyring
+ark
 autoconf
 autojump
 automake
@@ -39,7 +40,6 @@ git
 google-chrome
 gradle
 granite
-grep
 gwenview
 gzip
 hexyl
@@ -48,8 +48,6 @@ i3-gaps
 i3lock
 intel-ucode
 intellij-idea-ultimate-edition
-jdk8
-less
 licenses
 light
 lightdm-gtk-greeter

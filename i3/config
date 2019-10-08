@@ -262,6 +262,7 @@ assign [class="Postman"] $WS6
 assign [class="Foxit Reader"] $WS7
 assign [class="Com.github.babluboy.bookworm"] $WS7
 assign [class="calibre"] $WS7
+assign [class="FBReader"] $WS7
 assign [class="netease-cloud-music"] $WS8
 assign [class="vlc"] $WS9
 assign [class="Gimp"] $WS10

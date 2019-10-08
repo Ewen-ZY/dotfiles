@@ -15,14 +15,7 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_CLONE=/usr/bin/virtualenv-clone
 
-## /* basic config */
-if [ -f ~/.oh-my-zsh/themes/ys_ewen.zsh-theme ]; then
-    # ys_ewen is a theme with simple path info based on ys theme
-    ZSH_THEME="ys_ewen"
-else
-    # basic ys theme
-    ZSH_THEME="ys"
-fi
+ZSH_THEME="ys"
 HIST_STAMPS="yyyy-mm-dd"
 
 ## /* plugins */
@@ -35,7 +28,7 @@ plugins=(
 
 ## /* plugins config */
 [ -f $ZSH/oh-my-zsh.sh  ] && source $ZSH/oh-my-zsh.sh
-[ -f /usr/share/autojump/autojump.zsh ] && . /usr/share/autojump/autojump.zsh
+[ -f /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
 # Autosuggestion Bindkey Ctrl+Space
 bindkey '^ ' autosuggest-accept
 
@@ -62,27 +55,27 @@ fi
 
 ## /* aliases */
 alias tm='if which tmux > /dev/null 2>&1; then test -z "$TMUX" && (tmux attach || tmux new -s zy -n home); fi'
-    alias echo='/usr/bin/echo'
-    alias printf='/usr/bin/printf'
-    alias ping="ping -c 9 -i 0.3"
-    alias view="vim -R"
-    alias vi="vim"
-    alias du1='sudo du --max-depth=1 -h'
-    alias h1="history -l -10"
-    alias h2="history -l -20"
-    alias h3="history -l -30"
-    alias testproxy='curl www.google.com'
-    alias fzfview='fzf --height 60%  --preview "head -50 {}"'
-    # light aliases
-    alias LA='light -A '
-    alias LU='light -U '
-    # hexo aliases
-    alias hexod='setproxy && hexo clean && hexo generate -d && unsetproxy'
-    alias hexos='hexo clean && hexo generate && hexo server -d'
-    # tmux
-    alias tpmclean='~/.tmux/plugins/tpm/scripts/clean_plugins.sh'
-    alias tpminstall='~/.tmux/plugins/tpm/scripts/install_plugins.sh'
-    alias tpmupdate='~/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh all'
+alias echo='/usr/bin/echo'
+alias printf='/usr/bin/printf'
+alias ping="ping -c 9 -i 0.3"
+alias view="vim -R"
+alias vi="vim"
+alias du1='sudo du --max-depth=1 -h'
+alias h1="history -l -10"
+alias h2="history -l -20"
+alias h3="history -l -30"
+alias testproxy='setproxy && curl www.google.com && unsetproxy'
+alias fzfview='fzf --height 60%  --preview "head -50 {}"'
+# light aliases
+alias LA='light -A '
+alias LU='light -U '
+# hexo aliases
+alias hexod='setproxy && hexo clean && hexo generate -d && unsetproxy'
+alias hexos='hexo clean && hexo generate && hexo server -d'
+# tmux
+alias tpmclean='~/.tmux/plugins/tpm/scripts/clean_plugins.sh'
+alias tpminstall='~/.tmux/plugins/tpm/scripts/install_plugins.sh'
+alias tpmupdate='~/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh all'
 
 ## /* functions */
 # set shell & git proxy
@@ -124,7 +117,7 @@ function tmk() {
 function mySlogan() {
     echo -e "\t\033[0;32m`date`\033[0m"
     echo -e "\t过去属于死神，未来属于自己。  ——雪莱"
-    echo ''
+    echo
     if which fortune > /dev/null 2>&1; then
         fortune
     fi

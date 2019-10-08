@@ -205,6 +205,7 @@ let g:ycm_semantic_triggers =  {
 let g:ycm_filetype_whitelist = { 
             \ "c":1,
             \ "cpp":1, 
+            \ "desktop":1, 
             \ "objc":1,
             \ "sh":1,
             \ "html":1,
@@ -219,6 +220,11 @@ let g:ycm_filetype_whitelist = {
             \ "systemd":1,
             \ "yaml":1,
             \ }
+
+" GNU global
+" 原生支持的代码直接使用 gtags 本地分析器，而其他语言使用 pygments 模块
+let $GTAGSLABEL = 'native-pygments'
+let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
 
 " Markdown
 " Preview setting, https://github.com/iamcco/markdown-preview.vim
