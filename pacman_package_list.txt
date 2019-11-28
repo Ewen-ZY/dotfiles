@@ -37,6 +37,7 @@ fzf
 gawk
 gimp
 git
+gnu-netcat
 google-chrome
 gradle
 granite
@@ -48,11 +49,13 @@ i3-gaps
 i3lock
 intel-ucode
 intellij-idea-ultimate-edition
+iw
 licenses
 light
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
-lolcat
+lsof
+ltrace
 make
 man-pages
 maven
@@ -64,6 +67,7 @@ ncdu
 net-tools
 netease-cloud-music
 networkmanager
+nmap
 npm
 ntfs-3g
 openssh
@@ -76,6 +80,7 @@ polybar
 powerline
 powerline-common
 powerline-fonts
+procinfo
 pycharm-professional
 python-pip
 ranger
@@ -85,6 +90,7 @@ rxvt-unicode-terminfo
 sed
 shadowsocks-libev
 stow
+strace
 sudo
 tar
 task
@@ -110,7 +116,6 @@ xorg-twm
 xorg-xinit
 xorg-xkill
 xorg-xrandr
-guake
 yay
 youtube-dl
 zip

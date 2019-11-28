@@ -3,6 +3,7 @@ cheat-bash-git
 consolas-font
 fortune-mod-zh
 icdiff
+shc
 tmuxinator
 urxvt-fullscreen
 urxvt-resize-font-git

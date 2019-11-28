@@ -6,6 +6,7 @@
 # zsh
 export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=7
+export PATH=${HOME}/bin:${PATH}
 
 # python virtual environment directory
 export WORKON_HOME=$HOME/.virtualenvs
