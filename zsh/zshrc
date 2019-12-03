@@ -123,4 +123,10 @@ function mySlogan() {
         fortune
     fi
 }
+
+expand_screen() {
+    xrandr --output $1 --auto
+    xrandr --output $1 --primary $2 $3
+}
+
 mySlogan
