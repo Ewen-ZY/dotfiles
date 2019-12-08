@@ -130,7 +130,7 @@ bindsym $WIN+r mode "resize"
 exec --no-startup-id xset dpms 300
 
 # Set primary 
-# exec --no-startup-id xrandr --output HDMI1 --left-of eDP1 --primary
+exec --no-startup-id xrandr --output HDMI1 --right-of eDP1 --primary
 
 # Set background image
 set $i3BGIMAGE "/usr/share/pixmaps/images/gongshuisanye.png"

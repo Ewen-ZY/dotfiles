@@ -80,7 +80,7 @@ alias tpmupdate='~/.tmux/plugins/tpm/scripts/update_plugin_prompt_handler.sh all
 
 ## /* functions */
 # set shell & git proxy
-function setproxy() {
+setproxy() {
     echo 'Set Proxy ...'
     export http_proxy='localhost:8123'
     export https_proxy='localhost:8123'
@@ -90,7 +90,7 @@ function setproxy() {
 }
 
 # print shell & git proxy
-function echoproxy() {
+echoproxy() {
     echo 'Print proxys ...'
     ewa=`git config --global http.proxy`
     ewb=`git config --global https.proxy`
@@ -101,7 +101,7 @@ function echoproxy() {
 }
 
 # unset shell & git proxys
-function unsetproxy() {
+unsetproxy() {
     echo 'Unset proxys ...'
     unset http_proxy https_proxy
     git config --global --unset http.proxy
@@ -110,12 +110,12 @@ function unsetproxy() {
 }
 
 # open markdown function by Typora
-function tmk() {
+tmk() {
     /usr/bin/typora $1 > /dev/null 2>&1 &
 }
 
 # print some slogans
-function mySlogan() {
+mySlogan() {
     echo -e "\t\033[0;32m`date`\033[0m"
     echo -e "\t过去属于死神，未来属于自己。  ——雪莱"
     echo
@@ -127,6 +127,11 @@ function mySlogan() {
 expand_screen() {
     xrandr --output $1 --auto
     xrandr --output $1 --primary $2 $3
+}
+
+remove_screen() {
+    xrandr --output $1 --off
+    xrandr --output $2 --primary
 }
 
 mySlogan
