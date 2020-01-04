@@ -127,7 +127,7 @@ bindsym $WIN+r mode "resize"
 # /* basic auto launch */
 
 # Auto sleep
-exec --no-startup-id xset dpms 300
+exec --no-startup-id xset dpms 600
 
 # Set primary 
 exec --no-startup-id xrandr --output HDMI1 --right-of eDP1 --primary
