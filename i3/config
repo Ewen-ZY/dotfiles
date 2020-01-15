@@ -129,7 +129,7 @@ bindsym $WIN+r mode "resize"
 # Auto sleep
 exec --no-startup-id xset dpms 600
 
-# Set primary 
+# Set primary
 exec --no-startup-id xrandr --output HDMI1 --right-of eDP1 --primary
 
 # Set background image
@@ -143,7 +143,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id volumeicon
 
 # Launch Sogou Input
-exec --no-startup-id fcitx 
+exec --no-startup-id fcitx
 
 # disable bell
 exec --no-startup-id xset -b
@@ -167,7 +167,7 @@ bindsym Print exec --no-startup-id flameshot gui
 set $i3LOCKIMAGE "/home/ewen/Pictures/wallpaper/i3lock/TheGirl.png"
 mode "i3lock: Return to lock/Escape to Cancel" {
         bindsym Return mode "default" exec --no-startup-id i3lock -i $i3LOCKIMAGE
-        bindsym Escape mode "default" 
+        bindsym Escape mode "default"
 }
 bindsym $WIN+x mode "i3lock: Return to lock/Escape to Cancel"
 
@@ -204,7 +204,7 @@ bar {
 }
 
 # colors
-# class       border  backgr  text  indicator child_border 
+# class       border  backgr  text  indicator child_border
 client.urgent #4a4b4c #4a4b4c #fdfdfd #fbfbfb #4a4c4b
 client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
 client.background #111111
