@@ -1,94 +1,254 @@
-"----------------------------------------
-" Vundle
-"----------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" ==============================================================
+" Version:          1.0.0
+" Date:             2019-12-04 Wed 23:36:52
+" Author:           Ewen Lai
+" Email:            lwwens@gmail.com
+" Description:      vim config
+" ==============================================================
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.fzf
-
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Git Wrapper
-Plugin 'tpope/vim-fugitive'
-
-" Vim Markdown Plugins
-" Highlight
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-" MarkdownPreview
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'iamcco/mathjax-support-for-mkdp'
-" Table Mode
-Plugin 'dhruvasagar/vim-table-mode'
-
-" Vim background theme
-Plugin 'altercation/vim-colors-solarized'
-
-" Vim airline themes
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Code
-Plugin 'Raimondi/delimitMate'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Syntastic'
-Plugin 'UltiSnips'
-Plugin 'honza/vim-snippets'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Yggdroot/indentLine'
-" Python
-Plugin 'davidhalter/jedi-vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'tell-k/vim-autopep8'
-
-" Fuzzy Finder
-Plugin 'Yggdroot/LeaderF'
-" NERDTree
-Plugin 'scrooloose/nerdtree'
-" NERDTree-git-plugin
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" Translation
-Plugin 'iamcco/dict.vim'
-
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-call vundle#end()
-filetype plugin indent on
-
-"----------------------------------------
+" ==============================================================
 " Vim basic config
-"----------------------------------------
-" Automatically check filetype
-filetype plugin indent on
+" ==============================================================
 
-syntax enable
-" Set line number
+" NOTE: required if want to like Vim defaults
+set nocompatible
 set number
-set autoindent
-" Set tab => 4spaces
-set ts=4
+set relativenumber
 set expandtab
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
-" Set search options'
-set incsearch
+set smartindent
+set hidden
 set hlsearch
-" Set completion operations in an enhanced mode
-set wildmenu
-" Set desert as colorscheme
-colorscheme desert_EwenLai
-
-" Folding
+set ignorecase
+set t_Co=256
+set ttimeoutlen=50
+set updatetime=100
 set foldopen=all
 set foldclose=all
+set foldcolumn=0
 
-" RelativeNumber
-set relativenumber
+" ==============================================================
+" Vim Plugin settings
+" ==============================================================
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-scriptease'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'plasticboy/vim-markdown'      , { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim' , { 'do': { -> mkdp#util#install() },
+            \ 'for': 'markdown' }
+Plug 'godlygeek/tabular'            , { 'on': 'Tabularize' }
+Plug 'dhruvasagar/vim-table-mode'   , { 'for': 'markdown' }
+Plug 'chrisbra/csv.vim'             , { 'on': 'CSVInit' }
+Plug 'vim-airline/vim-airline'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'jmcantrell/vim-virtualenv'    , { 'for': 'python' }
+Plug 'preservim/nerdtree'           , { 'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin'  , { 'on': 'NERDTreeToggle'}
+"Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'liuchengxu/vista.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'mhinz/vim-grepper'            , { 'on': [ 'Grepper' ] }
+
+call plug#end()
+
+" inoremap <F9> <C-R>=ListMonths()<CR>
+" func! ListMonths()
+"   call complete(col('.'), ['January', 'February', 'March',
+"   \ 'April', 'May', 'June', 'July', 'August', 'September',
+"   \ 'October', 'November', 'December'])
+"   return ''
+" endfunc
+"
+"
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.fzf
+
+"" Code
+"Plugin 'Raimondi/delimitMate'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'UltiSnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'jiangmiao/auto-pairs'
+"Plugin 'Yggdroot/indentLine'
+"" Python
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'nvie/vim-flake8'
+"Plugin 'Vimjas/vim-python-pep8-indent'
+"Plugin 'tell-k/vim-autopep8'
+"
+"" Fuzzy Finder
+"Plugin 'Yggdroot/LeaderF'
+"
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"call vundle#end()
+
+" ==============================================================
+" Vim Plugin variables
+" ==============================================================
+
+""""""""""""""""""""""
+" Markdown variables "
+""""""""""""""""""""""
+"" https://github.com/plasticboy/vim-markdown
+set conceallevel=2
+let g:vim_markdown_edit_url_in = 'vsplit'
+let g:vim_markdown_toc_autofit = 1
+
+"" https://github.com/iamcco/markdown-preview.nvim
+let g:mkdp_auto_close = 0
+
+"" https://github.com/vim-airline/vim-airline
+let g:airline_symbols_ascii = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.paste = ''
+    let g:airline_symbols.spell = ''
+    let g:airline_symbols.notexists = ''
+    let g:airline_symbols.whitespace = ''
+endif
+" Always display tabline (must set in my vim)
+let g:airline#extensions#tabline#enabled = 1
+" set space as separators for the tab line
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ' '
+" set path formatter in the tab line
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:powerline_pycmd = "py3"
+" define the set of text to display for each mode
+let g:airline_mode_map = {
+            \ '__'     : '-',
+            \ 'c'      : 'C',
+            \ 'i'      : 'I',
+            \ 'ic'     : 'I',
+            \ 'ix'     : 'I',
+            \ 'n'      : 'N',
+            \ 'multi'  : 'M',
+            \ 'ni'     : 'N',
+            \ 'no'     : 'N',
+            \ 'R'      : 'R',
+            \ 'Rv'     : 'R',
+            \ 's'      : 'S',
+            \ 'S'      : 'S',
+            \ ''     : 'S',
+            \ 't'      : 'T',
+            \ 'v'      : 'V',
+            \ 'V'      : 'V',
+            \ ''     : 'V',
+            \ }
+let g:airline_filetype_overrides = {
+            \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERD'), '' ],
+            \ }
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>= <Plug>AirlineSelectNextTab
+let g:airline#extensions#hunks#non_zero_only = 1
+
+"" https://github.com/MattesGroeger/vim-bookmarks
+let g:bookmark_sign = '>'
+let g:bookmark_annotation_sign = '#'
+let g:bookmark_auto_close = 1
+"let g:bookmark_location_list = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_show_toggle_warning = 0
+let g:bookmark_disable_ctrlp = 1
+" Finds the Git super-project directory.
+function! g:BMWorkDirFileLocation()
+    let l:filename = '/.vim-bookmarks'
+    " Look upwards (at parents) for a directory named '.git'
+    let l:location = finddir('.git', ';')
+    let l:location = strpart(l:location, 0, len(l:location) - 4)
+    if len(l:location) > 0
+        return l:location.l:filename
+    else
+        return getcwd().l:filename
+    endif
+endfunction
+" Finds the Git super-project directory based on the file passed as an
+" argument.
+function! g:BMBufferFileLocation(file)
+    let l:filename = '/.vim-bookmarks'
+    " Look upwards (at parents) for a directory named '.git'
+    let l:location = finddir('.git', fnamemodify(a:file, ':p:h').'/.;')
+    let l:location = strpart(l:location, 0, len(l:location) - 4)
+    if len(l:location) > 0
+        return simplify(l:location.l:filename)
+    else
+        return simplify(fnamemodify(a:file, ':p:h').l:filename)
+    endif
+endfunction
+
+"" https://github.com/chrisbra/csv.vim
+let g:csv_delim = ','
+let g:csv_delim_test = ',;|'
+let g:csv_hiGroup = "IncSearch"
+let g:csv_hiHeader = 'Pmenu'
+let g:csv_highlight_column = 'y'
+let g:csv_autocmd_arrange = 1
+
+"" https://github.com/ntpeters/vim-better-whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitelines_at_eof=1
+let g:strip_whitespace_confirm=0
+
+"" https://github.com/liuchengxu/vista.vim
+let g:vista#renderer#enable_icon = 0
+let g:vista_fold_toggle_icons = [ '+', '-' ]
+let g:vista_cursor_delay = 100
+let g:vista_update_on_text_changed_delay = 100
+let g:vista_stay_on_open = 0
+let g:vista_icon_indent = [ '+ ', '+ ' ]
+
+"" https://github.com/vim-ctrlspace/vim-ctrlspace
+let g:CtrlSpaceSymbols = { "File": "F", "CTab": "▣", "Tabs": "T" }
+hi link CtrlSpaceNormal   PMenu
+hi link CtrlSpaceSelected PMenuSel
+hi link CtrlSpaceSearch   Search
+hi link CtrlSpaceStatus   StatusLine
+
+"" https://github.com/airblade/vim-gitgutter
+let g:gitgutter_max_signs = 200
+let g:gitgutter_preview_win_floating = 1
+hi link GitGutterAdd            GitSignAdd
+hi link GitGutterChange         GitSignChange
+hi link GitGutterDelete         GitSignAdd
+hi link GitGutterChangeDelete   GitSignChange
+
+"" https://github.com/preservim/nerdtree
+let g:NERDTreeIgnore = [ '\.pyc', '\~$', '\.swp', '\.o$[[file]]',
+        \ '^\.git$[[dir]]' ]
+let g:NERDTreeChDirMode = 3
+let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeWinSize = 25
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+
+" Set desert as colorscheme
+colorscheme desert_EwenLai
 
 " Use those charsets supporting various Chinese edcodings
 set fileencodings=utf-8,gbk,utf-16le,cp1252,iso-8859-15,ucs-bom
@@ -98,77 +258,23 @@ set encoding=utf-8
 "----------------------------------------
 " My iabbrev
 "----------------------------------------
-inoreabbrev xh 0121510870905
-inoreabbrev sfz 360734199611078232
 inoreabbrev yx@ lwwens@gmail.com
 inoreabbrev ccp Copyright Ewen Lai, all rights reserved.
 inoreabbrev gitweb https://github.com/Ewen-ZY
 inoreabbrev csdnweb https://blog.csdn.net/aq931752921
-cnoreabbrev vbh vertical botright help
+cnoreabbrev vbh vert bo h
+cnoreabbrev vh vert h
 
 "----------------------------------------
 " Vim variables
 "----------------------------------------
 " Set MapLocalLeader
-let maplocalleader=','
-let mapleader='\'
-
-" Always display tabline
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:powerline_pycmd = "py3"
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" NERDTree
-let g:NERDTreeWinSize = 20
-let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeAutoCenter = 1
-" Show hidden files
-let g:NERDTreeShowHidden = 1
-" Ignore hidden files such as .pyc,~$,.swp
-let g:NERDTreeIgnore = ['\.pyc','\~$','\.swp']
-let g:nerdtree_tabs_open_on_console_startup = 1
-" Show bookmarks
-let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified"  : "✹",
-            \ "Staged"    : "✚",
-            \ "Untracked" : "✭",
-            \ "Renamed"   : "➜",
-            \ "Unmerged"  : "═",
-            \ "Deleted"   : "✖",
-            \ "Dirty"     : "✗",
-            \ "Clean"     : "✔︎",
-            \ 'Ignored'   : '☒',
-            \ "Unknown"   : "?"
-            \ }
+let maplocalleader = ','
+let mapleader = ','
 
 " Syntastic
-" Error symbol
-let g:syntastic_error_symbol = '✗'
-" Warning symbol
-let g:syntastic_warning_symbol ='⚠'
+let g:syntastic_error_symbol = 'E'
+let g:syntastic_warning_symbol ='W'
 " Automatically update the list of buttom
 let g:syntastic_always_populate_loc_list = 1
 " Auto open list
@@ -202,10 +308,10 @@ let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
             \ 'cs,lua,javascript': ['re!\w{2}'],
             \ }
-let g:ycm_filetype_whitelist = { 
+let g:ycm_filetype_whitelist = {
             \ "c":1,
-            \ "cpp":1, 
-            \ "desktop":1, 
+            \ "cpp":1,
+            \ "desktop":1,
             \ "objc":1,
             \ "sh":1,
             \ "html":1,
@@ -227,27 +333,10 @@ let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
 
 " Markdown
-" Preview setting, https://github.com/iamcco/markdown-preview.vim
-" the file path to browser
-let g:mkdp_path_to_chrome = '/opt/google/chrome/google-chrome'
-let g:mkdp_auto_start = 0
-" open it while editing md file if not open preview page
-let g:mkdp_auto_open = 0
-let g:mkdp_auto_close = 1
-" auto refresh markdown as you edit or move the cursor
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 0
 
 " TableMode
-let g:table_mode_corner = '|'
-let g:table_mode_tableize_map = '<localleader>tt'
-let g:table_mode_delete_column_map = '<localleader>tc'
-let g:table_mode_delimiter = ','
-
-" Translation dict
-let g:api_key = "1932136763"
-let g:keyfrom = "aioiyuuko"
+"let g:table_mode_corner = '|'
+"let g:table_mode_delimiter = ','
 
 " Python
 let g:jedi#force_py_version=3
@@ -260,13 +349,9 @@ let g:syntastic_python_flake8_args='--ignore=E501,E225'
 " Replace <ESC> with jk
 inoremap jk <ESC>
 inoremap <localleader>w <ESC>:w<CR>
-nnoremap <localleader>w <ESC>:w<CR>
+nnoremap <localleader>w :w<CR>
 " Convert the current word to uppercase while inserting
-inoremap <C-U> <ESC>bviwU
-" edit ~/.vim/vimrc
-nnoremap <localleader>ev :vsplit $MYVIMRC<CR>
-nnoremap <localleader>eV :split $MYVIMRC<CR>
-nnoremap <localleader>rv :source $MYVIMRC<CR>
+"inoremap <C-U> <ESC>bviwU
 " Open/Close NERDTree
 nnoremap <localleader>m :NERDTreeToggle<CR>
 " Switch buffer
@@ -278,14 +363,6 @@ nnoremap G Gzz
 nnoremap <F2> a<C-R>=strftime("%Y-%m-%d %a %H:%M:%S")<CR><ESC>
 inoremap <localleader><localleader> <localleader>
 
-" Preview
-nnoremap <localleader>mp :MarkdownPreview<cr>
-nnoremap <localleader>ms :MarkdownPreviewStop<cr>
-
-" Markdown
-" TableMode
-nnoremap <localleader>tm :TableModeToggle<cr>
-nnoremap <localleader>tf :TableFormat<cr>
 " Leaderf
 nnoremap <localleader>f :LeaderfSelf<cr>
 
@@ -307,6 +384,20 @@ func ListReset()
     let g:counter = 0
     return ''
 endfunc
+
+" Tabular mapping
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+    let p = '^\s*|\s.*\s|\s*$'
+    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+        Tabularize/|/l1
+        normal! 0
+        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+    endif
+endfunction
 
 "----------------------------------------
 " Vim customized command
@@ -333,8 +424,8 @@ augroup END
 " Markdown file
 augroup Markdown_file
     au!
+    au BufEnter *.md nmap <C-p> <Plug>MarkdownPreviewToggle
     au BufNewFile,BufReadPost *.md set filetype=markdown
-    au BufNewFile,BufReadPost *.md setlocal foldcolumn=4
 augroup END
 
 " HTML file
@@ -357,3 +448,16 @@ augroup Py_file
     au VimEnter *.py python3 sys.path.append('.')
     au BufWritePost *.py call Flake8()
 augroup END
+
+aug CSV_file
+    au!
+    au BufEnter *.csv CSVInit
+    au BufEnter *.csv nnoremap <F2> a<C-R>=b:csv_result<CR><ESC>
+    "au BufRead,BufWritePost *.csv :Tabularize /,/l1c1
+    "au BufWritePre *.csv :%UnArrangeColumn
+aug end
+
+au BufEnter * if bufname('#') =~# '^NERD_tree_' && winnr('$') > 1
+                \ | b# | endif
+au bufenter * if (winnr('$') == 1 && exists('b:NERDTree') &&
+                \ b:NERDTree.isTabTree()) | q | endif
